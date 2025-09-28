@@ -1,6 +1,6 @@
-# Projeto Web2
+ Projeto Web2
 
-## Sobre
+ Sobre
 
 Este workspace contém dois projetos principais:
 
@@ -9,9 +9,9 @@ Este workspace contém dois projetos principais:
 
 ---
 
-## Como Iniciar os Projetos
+ Como Iniciar os Projetos
 
-### 1. Iniciando o Backend (API)
+ 1. Iniciando o Backend (API)
 
 1. **Pré-requisitos**:
    - Java 21 instalado
@@ -45,7 +45,7 @@ Este workspace contém dois projetos principais:
 
 ---
 
-### 2. Iniciando o Frontend (WEB2)
+ 2. Iniciando o Frontend (WEB2)
 
 1. **Pré-requisitos**:
    - Um navegador web moderno
@@ -58,9 +58,9 @@ Este workspace contém dois projetos principais:
 
 ---
 
-## Estrutura dos Projetos
+# Estrutura dos Projetos
 
-### backendapi (API Spring Boot)
+# backendapi (API Spring Boot)
 
 - **src/main/java/com/ifce/backendapi/**
   - **BackendapiApplication.java**  
