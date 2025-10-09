@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Loja de Guitarras</title>
+</head>
+
+<header>
+    <h1>Nome da loja</h1>
+    <nav class="header-nav">
+        <a href="cadastro.html" class="btn-cadastrar">+ Cadastrar Produto</a>
+    </nav>
+</header>
+
+<body>
+<div class="container">
+    <main>
+        <!-- Seção de Filtros -->
+        <div class="filtros-container">
+            <h2>Filtrar Produtos</h2>
+
+            <div class="filtros-grid">
+                <!-- Filtro por Nome -->
+                <div class="filtro-group">
+                    <label for="filtro-nome">Buscar por Nome</label>
+                    <input
+                            type="text"
+                            id="filtro-nome"
+                            placeholder="Digite o nome do produto..."
+                            class="filtro-input">
+                </div>
+
+                <!-- Filtro por Faixa de Preço -->
+                <div class="filtro-group">
+                    <label>Faixa de Preço</label>
+                    <div class="filtro-preco-inputs">
+                        <input
+                                type="number"
+                                id="filtro-preco-min"
+                                placeholder="Mínimo"
+                                step="0.01"
+                                min="0"
+                                class="filtro-input filtro-preco">
+                        <span class="filtro-separador">até</span>
+                        <input
+                                type="number"
+                                id="filtro-preco-max"
+                                placeholder="Máximo"
+                                step="0.01"
+                                min="0"
+                                class="filtro-input filtro-preco">
+                    </div>
+                </div>
+
+                <!-- Filtro Rápido de Preço -->
+                <div class="filtro-group">
+                    <label>Filtros Rápidos</label>
+                    <div class="filtros-rapidos">
+                        <button class="btn-filtro-rapido" data-tipo="promocao">🔥 Em Promoção (até R$ 5.000)</button>
+                        <button class="btn-filtro-rapido" data-tipo="premium">⭐ Premium (acima de R$ 10.000)</button>
+                        <button class="btn-filtro-rapido" data-tipo="todos">🔄 Todos os Produtos</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filtros-acoes">
+                <button id="btn-aplicar-filtros" class="btn-aplicar">Aplicar Filtros</button>
+                <button id="btn-limpar-filtros" class="btn-limpar">Limpar Filtros</button>
+            </div>
+
+            <div id="filtros-ativos" class="filtros-ativos"></div>
+        </div>
+
+        <!-- Grid de Produtos -->
+        <div class="produtos-header">
+            <h2>Produtos</h2>
+            <span id="contador-produtos" class="contador-produtos"></span>
+        </div>
+        <div id="produtos-grid">
+        </div>
+    </main>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
