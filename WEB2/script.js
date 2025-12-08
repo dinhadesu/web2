@@ -42,7 +42,6 @@ function buscarEExibirProdutosSimples() {
 
 buscarEExibirProdutosSimples();
 
-// Estado dos filtros
 let filtrosAplicados = {
     nome: '',
     precoMin: null,
@@ -50,7 +49,6 @@ let filtrosAplicados = {
     tipoFiltro: 'todos'
 };
 
-// Função principal para buscar produtos
 function buscarEExibirProdutos(filtros = {}) {
     const gridElement = document.getElementById("produtos-grid");
     const contadorElement = document.getElementById("contador-produtos");
@@ -67,7 +65,6 @@ function buscarEExibirProdutos(filtros = {}) {
             return response.json();
         })
         .then(produtos => {
-            // Aplicar filtros no frontend
             let produtosFiltrados = aplicarFiltros(produtos, filtros);
 
             gridElement.innerHTML = '';
@@ -78,7 +75,6 @@ function buscarEExibirProdutos(filtros = {}) {
                 return;
             }
 
-            // Atualizar contador
             contadorElement.textContent = `${produtosFiltrados.length} produto${produtosFiltrados.length !== 1 ? 's' : ''} encontrado${produtosFiltrados.length !== 1 ? 's' : ''}`;
 
             produtosFiltrados.forEach(produto => {
@@ -103,11 +99,9 @@ function buscarEExibirProdutos(filtros = {}) {
         });
 }
 
-// Função para aplicar filtros
 function aplicarFiltros(produtos, filtros) {
     let resultado = [...produtos];
 
-    // Filtro por nome
     if (filtros.nome && filtros.nome.trim() !== '') {
         const nomeBusca = filtros.nome.toLowerCase();
         resultado = resultado.filter(p =>
@@ -115,7 +109,6 @@ function aplicarFiltros(produtos, filtros) {
         );
     }
 
-    // Filtro por faixa de preço
     if (filtros.precoMin !== null && filtros.precoMin !== '') {
         resultado = resultado.filter(p => p.valor >= parseFloat(filtros.precoMin));
     }
@@ -124,7 +117,6 @@ function aplicarFiltros(produtos, filtros) {
         resultado = resultado.filter(p => p.valor <= parseFloat(filtros.precoMax));
     }
 
-    // Filtros rápidos
     if (filtros.tipoFiltro === 'promocao') {
         resultado = resultado.filter(p => p.valor <= 5000);
     } else if (filtros.tipoFiltro === 'premium') {
@@ -134,7 +126,7 @@ function aplicarFiltros(produtos, filtros) {
     return resultado;
 }
 
-// Função para exibir filtros ativos
+
 function atualizarFiltrosAtivos() {
     const filtrosAtivosElement = document.getElementById('filtros-ativos');
     const badges = [];
@@ -165,7 +157,6 @@ function atualizarFiltrosAtivos() {
     }
 }
 
-// Função para remover filtro individual
 function removerFiltro(tipo) {
     if (tipo === 'nome') {
         filtrosAplicados.nome = '';
@@ -184,7 +175,6 @@ function removerFiltro(tipo) {
     atualizarFiltrosAtivos();
 }
 
-// Event Listeners
 document.getElementById('btn-aplicar-filtros').addEventListener('click', () => {
     filtrosAplicados.nome = document.getElementById('filtro-nome').value;
     filtrosAplicados.precoMin = document.getElementById('filtro-preco-min').value;
@@ -210,12 +200,10 @@ document.getElementById('btn-limpar-filtros').addEventListener('click', () => {
     atualizarFiltrosAtivos();
 });
 
-// Filtros rápidos
 document.querySelectorAll('.btn-filtro-rapido').forEach(btn => {
     btn.addEventListener('click', (e) => {
         const tipo = e.target.getAttribute('data-tipo');
 
-        // Limpar outros filtros ao usar filtro rápido
         filtrosAplicados = {
             nome: '',
             precoMin: null,
@@ -227,7 +215,6 @@ document.querySelectorAll('.btn-filtro-rapido').forEach(btn => {
         document.getElementById('filtro-preco-min').value = '';
         document.getElementById('filtro-preco-max').value = '';
 
-        // Destacar botão ativo
         document.querySelectorAll('.btn-filtro-rapido').forEach(b => b.classList.remove('ativo'));
         e.target.classList.add('ativo');
 
@@ -236,7 +223,6 @@ document.querySelectorAll('.btn-filtro-rapido').forEach(btn => {
     });
 });
 
-// Busca em tempo real no campo de nome (opcional - com delay)
 let timeoutBusca;
 document.getElementById('filtro-nome').addEventListener('input', (e) => {
     clearTimeout(timeoutBusca);
@@ -244,8 +230,7 @@ document.getElementById('filtro-nome').addEventListener('input', (e) => {
         filtrosAplicados.nome = e.target.value;
         buscarEExibirProdutos(filtrosAplicados);
         atualizarFiltrosAtivos();
-    }, 500); // Aguarda 500ms após parar de digitar
+    }, 500); 
 });
 
-// Inicializar
 buscarEExibirProdutos(filtrosAplicados);

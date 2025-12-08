@@ -74,7 +74,6 @@ function carregarDetalhesProduto() {
                 </div>
             `;
 
-            // Adicionar event listeners aos botões
             document.querySelector('.btn-comprar').addEventListener('click', () => {
                 alert(`Produto "${produto.nome}" adicionado ao carrinho!`);
             });

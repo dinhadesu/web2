@@ -9,7 +9,7 @@
 </head>
 
 <header>
-    <h1>Nome da loja</h1>
+    <img src="./assets/logo.png" alt="Logo da Loja de Guitarras">
     <nav class="header-nav">
         <a href="cadastro.html" class="btn-cadastrar">+ Cadastrar Produto</a>
     </nav>
@@ -18,12 +18,10 @@
 <body>
 <div class="container">
     <main>
-        <!-- Seção de Filtros -->
         <div class="filtros-container">
             <h2>Filtrar Produtos</h2>
 
             <div class="filtros-grid">
-                <!-- Filtro por Nome -->
                 <div class="filtro-group">
                     <label for="filtro-nome">Buscar por Nome</label>
                     <input
@@ -33,7 +31,6 @@
                             class="filtro-input">
                 </div>
 
-                <!-- Filtro por Faixa de Preço -->
                 <div class="filtro-group">
                     <label>Faixa de Preço</label>
                     <div class="filtro-preco-inputs">
@@ -55,7 +52,6 @@
                     </div>
                 </div>
 
-                <!-- Filtro Rápido de Preço -->
                 <div class="filtro-group">
                     <label>Filtros Rápidos</label>
                     <div class="filtros-rapidos">
@@ -74,7 +70,6 @@
             <div id="filtros-ativos" class="filtros-ativos"></div>
         </div>
 
-        <!-- Grid de Produtos -->
         <div class="produtos-header">
             <h2>Produtos</h2>
             <span id="contador-produtos" class="contador-produtos"></span>
